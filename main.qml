@@ -1,6 +1,8 @@
 import QtQuick 2.12
 import QtQuick.Window 2.12
 import QtQuick.Controls 2.12
+import QtQuick.Layouts 1.12
+
 //import UriAAA 1.0
 
 Window {
@@ -9,37 +11,112 @@ Window {
     visible: true
     title: qsTr("Hello World")
 
-
-    Row {
+    Column {
         spacing: 10
+        Row {
+            spacing: 10
 
-        Label {
-            text: aaa.count
-            color: "red"
-            font.pixelSize: 24
-            horizontalAlignment: Qt.AlignHCenter
-            verticalAlignment: Qt.AlignVCenter
-            background: Rectangle{
-                color: "darkgrey"
+            Label {
+                id: label1
+                text: aaa.count
+                color: "red"
+                font.pixelSize: 24
+                horizontalAlignment: Qt.AlignHCenter
+                verticalAlignment: Qt.AlignVCenter
+                background: Rectangle{
+                    color: "black"
+                }
+
+                width: 100
+                height: 40
             }
 
-            width: 100
-            height: 40
+            Label {
+                id: label2
+                text: "N/A"
+                color: "lightgreen"
+                font.pixelSize: 24
+                horizontalAlignment: Qt.AlignHCenter
+                verticalAlignment: Qt.AlignVCenter
+                background: Rectangle{
+                    color: "black"
+                }
+
+                width: 100
+                height: 40
+            }
+
+
+            Button {
+                text:"+1"
+                onClicked: aaa.count++;
+            }
+
+            Button {
+                text: "+10"
+                onClicked: aaa.add10();
+            }
+
+            Button {
+                text:"reset"
+                onClicked: aaa.resetCount();
+            }
         }
 
-        Button {
-            text:"+1"
-            onClicked: aaa.count++;
-        }
+        ScrollView {
+            background: Rectangle{
+                color: "lightcyan"
+            }
+            height: 300
+            width: 300
 
-        Button {
-            text: "+10"
-            onClicked: aaa.add10();
-        }
+            ListView {
+                id: listView
+                model: ListModel {
+                    id: listModel
+                }
+                clip: true
+                spacing: 10
 
-        Button {
-            text:"reset"
-            onClicked: aaa.resetCount();
+                delegate: RowLayout {
+                    Item {
+                        Layout.preferredWidth: 50
+                    }
+
+                    Label {
+                        text: model.number
+                        Layout.preferredWidth: 50
+                    }
+
+                    Label {
+                        text: model.text
+                        Layout.preferredWidth: 100
+                    }
+                }
+
+                function createItems(n) {
+                    listModel.clear()
+
+                    for(var i =0; i<n; i++) {
+                        listModel.append({ number: i+1, text: "text "+i })
+                    }
+                }
+            }
+        }
+    }
+
+    Connections {
+        target: aaa
+
+        // Qt 5.15.x, 6.x
+        //function onCountValueChanged(value) {
+        //    label2.text = value
+        //}
+
+        // Qt 5.12.x
+        onCountValueChanged: {
+            label2.text = value
+            listView.createItems(aaa.count)
         }
     }
 }

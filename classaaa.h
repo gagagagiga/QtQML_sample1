@@ -25,6 +25,8 @@ public slots:
 signals:
     void countChanged();
 
+    void countValueChanged(int value);
+
 private:
     int _count;
 };

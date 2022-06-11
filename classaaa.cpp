@@ -24,6 +24,7 @@ void ClassAAA::setCount(const int value)
     {
         _count = value;
         emit countChanged();
+        emit countValueChanged(_count);
     }
 }
 
@@ -32,6 +33,7 @@ void ClassAAA::add10()
     _count += 10;
     qDebug() << "add10()" << _count;
     emit countChanged();
+    emit countValueChanged(_count);
 }
 
 void ClassAAA::resetCount()
@@ -39,6 +41,7 @@ void ClassAAA::resetCount()
     _count = 0;
     qDebug() << "resetCount()" << _count;
     emit countChanged();
+    emit countValueChanged(_count);
 }
 
 

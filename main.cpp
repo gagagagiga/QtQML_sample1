@@ -22,8 +22,8 @@ int main(int argc, char *argv[])
     // --------------------------------------------------------------
 
 
-//    qmlRegisterUncreatableType<ClassAAA>("UriAAA", 1, 0, "QmlNameAAA",
-//        QString("ClassAAA should not be created in QML"));
+    //qmlRegisterUncreatableType<ClassAAA>("UriAAA", 1, 0, "QmlNameAAA",
+    //    QString("ClassAAA should not be created in QML"));
 
 
     // --------------------------------------------------------------
