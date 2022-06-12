@@ -1,8 +1,8 @@
-# C++ »P QML ·¾³q½d¨Ò (QtQML_sample1)
+ï»¿# C++ èˆ‡ QML æºé€šç¯„ä¾‹ (QtQML_sample1)
 
-°Ñ¦Ò¥H¤U¤å¥ó¡G
+åƒè€ƒä»¥ä¸‹æ–‡ä»¶ï¼š
 * [Integrating QML and C++](https://doc.qt.io/qt-5/qtqml-cppintegration-topic.html)
 * [Overview - QML and C++ Integration](https://doc.qt.io/qt-5/qtqml-cppintegration-overview.html)
 * [Interacting with QML Objects from C++](https://doc.qt.io/qt-6/qtqml-cppintegration-interactqmlfromcpp.html)
 
-¶}µoÀô¹Ò¡GQt 5.12.12
+é–‹ç™¼ç’°å¢ƒï¼šQt 5.12.12
