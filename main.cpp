@@ -21,7 +21,7 @@ int main(int argc, char *argv[])
     QGuiApplication app(argc, argv);
     // --------------------------------------------------------------
 
-
+    // 註冊後，ClassAAA 不能在QML下建立實體
     //qmlRegisterUncreatableType<ClassAAA>("UriAAA", 1, 0, "QmlNameAAA",
     //    QString("ClassAAA should not be created in QML"));
 
@@ -30,7 +30,7 @@ int main(int argc, char *argv[])
     QQmlApplicationEngine engine;
     // --------------------------------------------------------------
 
-
+    // 傳遞給QML，供操作物件功能使用
     engine.rootContext()->setContextProperty("aaa", &aaa);
 
 
