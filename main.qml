@@ -61,6 +61,23 @@ Window {
                 text:"reset"
                 onClicked: aaa.resetCount();
             }
+
+            Button {
+                text:"test1"
+                onClicked: {
+                    label1.text = "test" // 會解除綁定
+                    label2.text = "test"
+                }
+            }
+            Button {
+                text:"test2"
+                onClicked: {
+                    // 並不會重新綁定
+                    label1.text = aaa.count
+                    label2.text = aaa.count
+                }
+
+            }
         }
 
         ScrollView {
